@@ -1,0 +1,2 @@
+# bazant
+bazant static website
