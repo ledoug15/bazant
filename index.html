@@ -158,14 +158,11 @@
     #accueil {
       min-height: 100vh;
       background:
-        linear-gradient(to right, rgba(10,20,35,0.82) 0%, rgba(10,20,35,0.55) 60%, rgba(10,20,35,0.35) 100%),
+        linear-gradient(to right, rgba(10,20,35,0.85) 0%, rgba(10,20,35,0.6) 55%, rgba(10,20,35,0.3) 100%),
         url('images/bazant_bureau_clair.png') center center / cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      display: block;
       position: relative;
       overflow: hidden;
-      padding: 7rem 0 0;
     }
     #accueil::before {
       content: '';
@@ -181,15 +178,13 @@
         linear-gradient(90deg, rgba(200,169,110,0.03) 1px, transparent 1px);
       background-size: 60px 60px;
     }
-
-    /* Single column hero */
     .hero-inner {
-      display: block;
       position: relative;
       z-index: 2;
-      padding-bottom: 4rem;
+      padding-top: 14rem;
+      padding-bottom: 6rem;
     }
-    .hero-content { position: relative; z-index: 2; }
+    .hero-content { max-width: 600px; }
     .hero-image-col { display: none; }
     .hero-eyebrow {
       font-size: 0.7rem;
