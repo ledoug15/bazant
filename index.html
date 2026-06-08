@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Bazant Conseil – Courtier en Assurance</title>
+  <meta name="description" content="BAZANT CONSEIL analyse vos besoins et sélectionne les garanties adaptées au meilleur prix, auprès de partenaires de confiance." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Variables ── */
+    :root {
+      --navy: #0d1b2a;
+      --navy-mid: #16263a;
+      --gold: #c8a96e;
+      --gold-light: #e0c898;
+      --cream: #f7f4ef;
+      --white: #ffffff;
+      --muted: #7a8592;
+      --border: rgba(200, 169, 110, 0.2);
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Utilities ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 0 0 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .display-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      line-height: 1.1;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+    nav.scrolled {
+      background: rgba(13, 27, 42, 0.97);
+      box-shadow: 0 1px 30px rgba(0,0,0,0.3);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+    }
+    .nav-logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+    .nav-logo-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-top: -2px;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform var(--transition);
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 0.55rem 1.25rem;
+      font-size: 0.75rem !important;
+      font-weight: 500 !important;
+      border-radius: 2px;
+      transition: background var(--transition), transform var(--transition) !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .burger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--white);
+      transition: var(--transition);
+    }
+
+    /* ── Hero ── */
+    #accueil {
+      min-height: 100vh;
+      background: linear-gradient(160deg, var(--navy) 0%, #0a2540 60%, #122d4a 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 7rem 0 0;
+    }
+    #accueil::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 65% 40%, rgba(200,169,110,0.06) 0%, transparent 70%);
+    }
+    .hero-grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(200,169,110,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,169,110,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Two-column hero layout */
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      padding-bottom: 4rem;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.75rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.3s forwards;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.08;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-subtitle {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.7s forwards;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.9s forwards;
+    }
+
+    /* Hero image column */
+    .hero-image-col {
+      position: relative;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.6s forwards;
+    }
+    .hero-image-wrap {
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    /* Gold frame accent */
+    .hero-image-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -12px -12px 12px 12px;
+      border: 1px solid rgba(200,169,110,0.25);
+      border-radius: 2px;
+      z-index: -1;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      border-radius: 2px;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(200,169,110,0.3);
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      border-radius: 2px;
+      transition: border-color var(--transition), color var(--transition), transform var(--transition);
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    /* Trust bar — replaces awkward badges, sits below hero */
+    .trust-bar {
+      background: rgba(0,0,0,0.25);
+      border-top: 1px solid rgba(200,169,110,0.12);
+      position: relative;
+      z-index: 2;
+    }
+    .trust-bar-inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .trust-item {
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-right: 1px solid rgba(200,169,110,0.1);
+    }
+    .trust-item:last-child { border-right: none; }
+    .trust-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+    .trust-text strong {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+    .trust-text span {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ── Expertise ── */
+    #expertise {
+      padding: 7rem 0;
+      background: var(--cream);
+    }
+    .expertise-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: end;
+      margin-bottom: 4rem;
+    }
+    .expertise-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      color: var(--navy);
+    }
+    .expertise-intro {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--muted);
+      align-self: center;
+    }
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(0,0,0,0.08);
+    }
+    .expertise-card {
+      background: var(--cream);
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: background var(--transition);
+      cursor: default;
+    }
+    .expertise-card:hover { background: var(--white); }
+    .expertise-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+    .expertise-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--navy);
+    }
+    .expertise-card p {
+      font-size: 0.85rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+    .expertise-card-num {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.75rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      color: var(--gold);
+      opacity: 0.6;
+    }
+
+    /* ── Approche ── */
+    #approche {
+      padding: 7rem 0;
+      background: var(--navy);
+    }
+    .approche-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .approche-left .section-label { filter: none; }
+    .approche-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .approche-desc {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.55);
+    }
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 1.5rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+    }
+    .step:last-child { border-bottom: none; }
+    .step-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.5;
+      line-height: 1;
+    }
+    .step-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .step-content p {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── Particuliers / Professionnels tabs ── */
+    #particuliers, #professionels { padding: 7rem 0; }
+    #professionels { background: var(--white); }
+    .clients-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 3rem;
+      border-bottom: 2px solid rgba(0,0,0,0.08);
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 1rem 2rem;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: color var(--transition), border-color var(--transition);
+    }
+    .tab-btn.active {
+      color: var(--navy);
+      border-bottom-color: var(--gold);
+    }
+    .clients-section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      margin-bottom: 0.75rem;
+    }
+    .clients-section-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── Partners ── */
+    #partenaires {
+      padding: 6rem 0;
+      background: var(--cream);
+    }
+    .partners-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .partners-header .section-label {
+      justify-content: center;
+    }
+    .partners-header .section-label::after { display: none; }
+    .partners-header h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin-bottom: 1rem;
+    }
+    .partners-header p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: rgba(0,0,0,0.07);
+    }
+    .partner-cell {
+      background: var(--cream);
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition);
+    }
+    .partner-cell:hover { background: var(--white); }
+    .partner-cell img {
+      max-height: 36px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(1) opacity(0.5);
+      transition: filter var(--transition);
+    }
+    .partner-cell:hover img {
+      filter: grayscale(0) opacity(1);
+    }
+    .partners-note {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-style: italic;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── FAQ ── */
+    #faq {
+      padding: 7rem 0;
+      background: var(--white);
+    }
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .faq-left h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin-bottom: 1rem;
+    }
+    .faq-left p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+    .faq-item {
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--navy);
+      transition: color var(--transition);
+    }
+    .faq-question:hover { color: var(--gold); }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      transition: transform var(--transition);
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-answer-inner {
+      padding-bottom: 1.5rem;
+      font-size: 0.875rem;
+      line-height: 1.85;
+      color: var(--muted);
+    }
+    .faq-answer-inner ul {
+      margin-top: 0.5rem;
+      margin-left: 1.25rem;
+    }
+    .faq-answer-inner li { margin-bottom: 0.25rem; }
+
+    /* ── Contact ── */
+    #contact {
+      padding: 7rem 0;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+    #contact::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(200,169,110,0.06) 0%, transparent 70%);
+    }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      position: relative;
+      z-index: 2;
+    }
+    .contact-left h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .contact-left p {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 2.5rem;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 1.25rem; }
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .contact-info-icon {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .contact-info-text a, .contact-info-text span {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--white);
+      transition: color var(--transition);
+    }
+    .contact-info-text a:hover { color: var(--gold); }
+    .contact-info-text small {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.05em;
+    }
+
+    /* Form */
+    .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.45rem; }
+    .form-group label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 2px;
+      padding: 0.85rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      color: var(--white);
+      outline: none;
+      transition: border-color var(--transition), background var(--transition);
+      width: 100%;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.25);
+    }
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(255,255,255,0.4)' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+    }
+    .form-group select option { background: var(--navy-mid); color: var(--white); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      background: rgba(200,169,110,0.05);
+    }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-submit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .form-submit button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      padding: 0.9rem 2rem;
+      border-radius: 2px;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .form-submit button:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+    .form-legal {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+      line-height: 1.6;
+    }
+    .form-success {
+      display: none;
+      background: rgba(200,169,110,0.1);
+      border: 1px solid var(--gold);
+      padding: 1.25rem;
+      border-radius: 2px;
+      font-size: 0.88rem;
+      color: var(--gold);
+      text-align: center;
+    }
+    .form-success.show { display: block; }
+
+    /* ── Footer ── */
+    footer {
+      background: #080f18;
+      padding: 3rem 0 2rem;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 1.5rem;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.2);
+    }
+    .footer-legal {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Mobile menu ── */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: var(--navy);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        z-index: 99;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1rem; color: var(--white); }
+      .burger { display: flex; z-index: 101; }
+      .burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+      .burger.open span:nth-child(2) { opacity: 0; }
+      .burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+      .expertise-header { grid-template-columns: 1fr; gap: 1.5rem; }
+      .expertise-grid { grid-template-columns: 1fr; }
+      .approche-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .faq-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .partners-grid { grid-template-columns: repeat(3, 1fr); }
+      .form-row { grid-template-columns: 1fr; }
+      /* Hero mobile: stack columns, hide image */
+      .hero-inner { grid-template-columns: 1fr; gap: 0; }
+      .hero-image-col { display: none; }
+      .trust-bar-inner { grid-template-columns: 1fr; }
+      .trust-item { border-right: none; border-bottom: 1px solid rgba(200,169,110,0.1); }
+      .trust-item:last-child { border-bottom: none; }
+    }
+    @media (max-width: 500px) {
+      .partners-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <div>
+        <span class="nav-logo-text">Bazant</span>
+        <span class="nav-logo-sub">Conseil</span>
+      </div>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#particuliers">Particuliers</a></li>
+      <li><a href="#professionels">Professionnels</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact" class="nav-cta">Obtenir un devis</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section id="accueil">
+    <div class="hero-grid-overlay"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <!-- Left: text -->
+        <div class="hero-content">
+          <p class="hero-eyebrow">Courtier en Assurance Indépendant</p>
+          <h1 class="hero-title">Votre assurance,<br /><em>parfaitement négociée.</em></h1>
+          <p class="hero-subtitle">L'équipe BAZANT CONSEIL analyse vos besoins et sélectionne les garanties adaptées à votre situation au meilleur prix, auprès de partenaires de confiance.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">Obtenir un devis →</a>
+            <a href="tel:0767916796" class="btn-outline">☎ 07.67.91.67.96</a>
+          </div>
+        </div>
+        <!-- Right: image — remplacez le src par l'URL de votre image -->
+        <div class="hero-image-col">
+          <div class="hero-image-wrap">
+            <img
+              src="https://bazant.fr/wp-content/uploads/2026/04/bazant_bureau_clair.png"
+              alt="Bazant Conseil – Courtier en assurance"
+              onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#16263a,#0a2540)'"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust bar (replaces les 3 badges) -->
+    <div class="trust-bar">
+      <div class="container">
+        <div class="trust-bar-inner">
+          <div class="trust-item">
+            <span class="trust-icon">◈</span>
+            <div class="trust-text">
+              <strong>Courtier 100% indépendant</strong>
+              <span>Nous défendons uniquement vos intérêts</span>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">◆</span>
+            <div class="trust-text">
+              <strong>Partenaires de confiance</strong>
+              <span>Accès aux meilleures compagnies du marché</span>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">◇</span>
+            <div class="trust-text">
+              <strong>Solutions sur mesure</strong>
+              <span>Des garanties adaptées à votre situation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Notre Expertise ── -->
+  <section id="expertise">
+    <div class="container">
+      <div class="expertise-header reveal">
+        <div>
+          <p class="section-label">Notre expertise</p>
+          <h2 class="display-title expertise-title">Notre expertise<br />à votre service</h2>
+        </div>
+        <p class="expertise-intro">Des solutions performantes et adaptées pour votre entreprise ou à titre personnel. Nous comparons les meilleures offres pour garantir un choix optimal, en toute indépendance.</p>
+      </div>
+
+      <div class="expertise-grid reveal">
+        <div class="expertise-card">
+          <span class="expertise-card-num">01</span>
+          <span class="expertise-card-icon">🏥</span>
+          <h3>Mutuelle santé</h3>
+          <p>Des solutions performantes et adaptées pour votre entreprise ou à titre personnel. Nous comparons les meilleures offres pour garantir un choix optimal.</p>
+        </div>
+        <div class="expertise-card">
+          <span class="expertise-card-num">02</span>
+          <span class="expertise-card-icon">🛡️</span>
+          <h3>Prévoyance</h3>
+          <p>Protégez vos revenus et vos proches en cas d'imprévu. Des solutions sur mesure pour sécuriser votre avenir en toute sérénité.</p>
+        </div>
+        <div class="expertise-card">
+          <span class="expertise-card-num">03</span>
+          <span class="expertise-card-icon">📈</span>
+          <h3>Épargne retraite</h3>
+          <p>Préparez sereinement votre avenir et vos revenus de demain. Nous vous accompagnons dans la construction d'une épargne adaptée à vos objectifs.</p>
+        </div>
+        <div class="expertise-card">
+          <span class="expertise-card-num">04</span>
+          <span class="expertise-card-icon">🏡</span>
+          <h3>Assurance emprunteur</h3>
+          <p>Sécurisez votre prêt avec une assurance parfaitement adaptée. Bénéficiez de garanties optimisées au meilleur tarif.</p>
+        </div>
+        <div class="expertise-card">
+          <span class="expertise-card-num">05</span>
+          <span class="expertise-card-icon">🔑</span>
+          <h3>Homme clé</h3>
+          <p>Protégez votre entreprise face aux risques liés à un dirigeant clé. Assurez la continuité de votre activité en toutes circonstances.</p>
+        </div>
+        <div class="expertise-card">
+          <span class="expertise-card-num">06</span>
+          <span class="expertise-card-icon">✈️</span>
+          <h3>Voyage</h3>
+          <p>Partez l'esprit tranquille avec une couverture adaptée. Profitez de garanties complètes pour tous vos déplacements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Notre Approche ── -->
+  <section id="approche">
+    <div class="container">
+      <div class="approche-inner">
+        <div class="approche-left reveal">
+          <p class="section-label" style="color:var(--gold);">Notre approche</p>
+          <h2 class="display-title approche-title">Un accompagnement<br /><em style="color:var(--gold);font-style:italic;">sur-mesure</em></h2>
+          <p class="approche-desc">Nous effectuons un audit complet de votre situation et vous proposons les meilleures solutions, sans obligation contractuelle avec un assureur. Notre seul intérêt, c'est le vôtre.</p>
+        </div>
+        <div class="steps reveal">
+          <div class="step">
+            <span class="step-number">01</span>
+            <div class="step-content">
+              <h3>Analyse et validation de vos attentes</h3>
+              <p>Nous effectuons un audit des contrats en vigueur et validons ensemble vos besoins avec nos préconisations.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">02</span>
+            <div class="step-content">
+              <h3>Négociation auprès de nos partenaires</h3>
+              <p>Nous sollicitons l'ensemble de nos partenaires pour vous trouver les garanties adéquates avec une tarification juste.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">03</span>
+            <div class="step-content">
+              <h3>Mise en place d'un contrat optimisé</h3>
+              <p>Simplification des démarches : nous vous accompagnons de la résiliation à la mise en place de vos nouveaux contrats.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Particuliers ── -->
+  <section id="particuliers">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Particuliers</p>
+        <h2 class="display-title clients-section-title">Solutions pour<br />les particuliers</h2>
+        <p class="clients-section-desc">Mutuelle santé, prévoyance, épargne retraite, assurance emprunteur ou voyage — nous trouvons la couverture adaptée à votre vie et votre budget.</p>
+        <a href="#contact" class="btn-primary" style="display:inline-flex;">Obtenir un devis particulier →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Professionnels ── -->
+  <section id="professionels">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Professionnels</p>
+        <h2 class="display-title clients-section-title">Solutions pour<br />les professionnels</h2>
+        <p class="clients-section-desc">Mutuelle d'entreprise, prévoyance collective, homme clé, assurance emprunteur professionnel — nous protégeons votre activité et vos équipes.</p>
+        <a href="#contact" class="btn-primary" style="display:inline-flex;">Obtenir un devis professionnel →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Partenaires ── -->
+  <section id="partenaires">
+    <div class="container">
+      <div class="partners-header reveal">
+        <p class="section-label" style="justify-content:center;">Nos partenaires</p>
+        <h2 class="display-title">Des partenaires de confiance</h2>
+        <p>BAZANT CONSEIL ne possède aucune obligation contractuelle avec une entreprise d'assurance, permettant ainsi un placement en toute indépendance.</p>
+      </div>
+      <div class="partners-grid reveal">
+        <div class="partner-cell"><img src="https://bazant.fr/wp-content/uploads/2026/05/logo_april.webp" alt="April" /></div>
+        <div class="partner-cell"><img src="https://bazant.fr/wp-content/uploads/2026/05/logo_alptis.webp" alt="Alptis" /></div>
+        <div class="partner-cell"><img src="https://bazant.fr/wp-content/uploads/2026/05/logo_axa.webp" alt="AXA" /></div>
+        <div class="partner-cell"><img src="https://bazant.fr/wp-content/uploads/2026/05/logo_gan.webp" alt="GAN" /></div>
+        <div class="partner-cell"><img src="https://bazant.fr/wp-content/uploads/2026/05/logo_generali.webp" alt="Generali" /></div>
+        <div class="partner-cell"><img src="https://bazant.fr/wp-content/uploads/2026/05/logo_humanis.webp" alt="Humanis" /></div>
+        <div class="partner-cell"><img src="https://bazant.fr/wp-content/uploads/2026/05/logo_swisslife.webp" alt="Swiss Life" /></div>
+        <div class="partner-cell"><img src="https://bazant.fr/wp-content/uploads/2026/05/logo_entoria.webp" alt="Entoria" /></div>
+        <div class="partner-cell"><img src="https://bazant.fr/wp-content/uploads/2026/05/logo_harmonie.webp" alt="Harmonie" /></div>
+        <div class="partner-cell"><img src="https://bazant.fr/wp-content/uploads/2026/05/logo_aesio.webp" alt="AESIO" /></div>
+        <div class="partner-cell"><img src="https://bazant.fr/wp-content/uploads/2026/05/logo_hener.webp" alt="Hener" /></div>
+        <div class="partner-cell"><img src="https://bazant.fr/wp-content/uploads/2026/05/logo_mut_mieux.webp" alt="Mutuelle Mieux" /></div>
+        <div class="partner-cell"><img src="https://bazant.fr/wp-content/uploads/2026/05/logo_gsmc.webp" alt="GSMC" /></div>
+        <div class="partner-cell"><img src="https://bazant.fr/wp-content/uploads/2026/05/logo_utwin-1.webp" alt="Utwin" /></div>
+        <div class="partner-cell"><img src="https://bazant.fr/wp-content/uploads/2026/05/logo_abeille.webp" alt="Abeille" /></div>
+      </div>
+      <p class="partners-note reveal">Notre force réside dans notre présence auprès d'un large réseau : assureurs, mutualistes et acteurs institutionnels.</p>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section id="faq">
+    <div class="container">
+      <div class="faq-layout">
+        <div class="reveal">
+          <p class="section-label">FAQ</p>
+          <h2 class="display-title">Questions<br />fréquentes</h2>
+          <p>Vous avez d'autres questions ? Contactez-nous directement, nous vous répondrons rapidement.</p>
+        </div>
+        <div class="faq-list reveal">
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Pourquoi passer par un courtier en assurance ?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Parce que vous gagnez du temps et de l'argent. Nous analysons votre situation, comparons des dizaines d'offres et négocions pour vous obtenir le meilleur rapport garanties/prix, sans frais cachés. Vous profitez d'un accompagnement expert et d'un contrat réellement adapté à vos besoins.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Puis-je changer d'assurance emprunteur ?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Oui. Depuis les lois de résiliation infra-annuelle (loi Hamon, loi Bourquin, réforme 2023–2026), vous pouvez résilier plusieurs types de contrats à tout moment après la première année, sans frais ni justification. Cela concerne notamment :
+                <ul>
+                  <li>la mutuelle / complémentaire santé,</li>
+                  <li>l'assurance emprunteur,</li>
+                  <li>certaines assurances prévoyance selon les contrats.</li>
+                </ul>
+                Votre courtier vous accompagne pour vérifier votre éligibilité et gérer la résiliation à votre place.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              En quoi l'accompagnement de Bazant conseil est-il différent ?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Nous sommes 100 % indépendants. Notre seul intérêt, c'est le vôtre. Nous sélectionnons les meilleures solutions du marché, pas celles d'un seul organisme. Résultat : des garanties plus pertinentes, des tarifs optimisés et un suivi personnalisé tout au long de votre contrat.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Puis-je vraiment économiser en changeant de mutuelle ?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Oui, et souvent bien plus que vous ne l'imaginez. Grâce aux lois de résiliation simplifiées, vous pouvez changer facilement et profiter d'offres plus compétitives. Nous identifions pour vous les économies possibles tout en renforçant votre niveau de protection.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Comment choisir le bon niveau de garanties ?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Le bon niveau dépend de votre situation : âge, profession, revenus, composition familiale, risques spécifiques, reste à charge actuel. Un courtier analyse vos besoins réels, compare les offres du marché et vous propose une couverture ni insuffisante, ni surdimensionnée, avec un rapport garanties/prix optimal.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Suis-je couvert à l'étranger avec ma mutuelle ?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                La plupart des mutuelles couvrent uniquement les soins urgents en Europe, et très partiellement hors UE. Pour un voyage, un stage ou une expatriation, il est souvent nécessaire de souscrire une assurance santé internationale couvrant les frais médicaux, le rapatriement, l'hospitalisation et les soins courants. Votre courtier vous oriente vers la solution adaptée.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="reveal">
+          <p class="section-label" style="color:var(--gold);">Contact</p>
+          <h2 class="display-title contact-left">Un besoin ?<br /><em style="color:var(--gold);font-style:italic;">Parlons-en.</em></h2>
+          <p style="color:rgba(255,255,255,0.55);font-size:0.9rem;line-height:1.8;margin-bottom:2.5rem;">Effectuons ensemble une analyse de vos contrats. Réponse sous 24h.</p>
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <div class="contact-info-icon">☎</div>
+              <div class="contact-info-text">
+                <a href="tel:0767916796">07.67.91.67.96</a>
+                <small>Appel ou rappel</small>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">✉</div>
+              <div class="contact-info-text">
+                <a href="mailto:info@bazant.fr">info@bazant.fr</a>
+                <small>Réponse sous 24h</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <!-- Replace action with your Formspree endpoint: https://formspree.io -->
+          <form
+            class="contact-form"
+            action="https://formspree.io/f/VOTRE_ID_ICI"
+            method="POST"
+            id="contactForm"
+          >
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prenom">Prénom</label>
+                <input type="text" id="prenom" name="prenom" placeholder="Jean" required />
+              </div>
+              <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" placeholder="Dupont" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="jean@exemple.fr" required />
+            </div>
+            <div class="form-group">
+              <label for="telephone">Téléphone</label>
+              <input type="tel" id="telephone" name="telephone" placeholder="06 12 34 56 78" />
+            </div>
+            <div class="form-group">
+              <label for="sujet">Besoin</label>
+              <select id="sujet" name="sujet" required>
+                <option value="" disabled selected>Sélectionnez votre besoin</option>
+                <option value="mutuelle">Mutuelle santé</option>
+                <option value="prevoyance">Prévoyance</option>
+                <option value="epargne">Épargne retraite</option>
+                <option value="emprunteur">Assurance emprunteur</option>
+                <option value="homme-cle">Homme clé</option>
+                <option value="voyage">Voyage</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message (optionnel)</label>
+              <textarea id="message" name="message" placeholder="Décrivez brièvement votre situation…"></textarea>
+            </div>
+            <div class="form-submit">
+              <button type="submit">Envoyer ma demande →</button>
+              <p class="form-legal">Vos données sont traitées conformément à notre politique de confidentialité et ne sont jamais revendues.</p>
+            </div>
+            <div class="form-success" id="formSuccess">
+              ✓ Votre message a bien été envoyé. Nous vous répondrons sous 24h.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Bazant <span>Conseil</span></div>
+        <ul class="footer-links">
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#partenaires">Partenaires</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Bazant Conseil – Courtier en assurance. Tous droits réservés.</p>
+        <p class="footer-legal">ORIAS n° XXXXXXXX – Immatriculé au Registre des Intermédiaires en Assurance</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Nav scroll ──
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // ── Burger menu ──
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        burger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // ── Reveal on scroll ──
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // ── FAQ accordion ──
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-answer').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    }
+
+    // ── Form with Formspree ──
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('formSuccess');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Envoi en cours…';
+      btn.disabled = true;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+        if (res.ok) {
+          form.reset();
+          successMsg.classList.add('show');
+          btn.textContent = 'Message envoyé ✓';
+        } else {
+          btn.textContent = 'Erreur — réessayez';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = 'Erreur réseau — réessayez';
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
