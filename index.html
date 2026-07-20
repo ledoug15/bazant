@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Bazant Conseil – Courtier en Assurance</title>
-  <meta name="description" content="BAZANT CONSEIL analyse vos besoins et sélectionne les garanties adaptées au meilleur prix, auprès de partenaires de confiance." />
+  <title>Bazant Conseil &ndash; Courtier en Assurance</title>
+  <meta name="description" content="BAZANT CONSEIL analyse vos besoins et s&eacute;lectionne les garanties adapt&eacute;es au meilleur prix, aupr&egrave;s de partenaires de confiance." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── Variables ── */
+    /* &#9472;&#9472; Variables &#9472;&#9472; */
     :root {
       --navy: #0d1b2a;
       --navy-mid: #16263a;
@@ -23,7 +23,7 @@
       --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* ── Reset ── */
+    /* &#9472;&#9472; Reset &#9472;&#9472; */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
@@ -35,7 +35,7 @@
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
 
-    /* ── Utilities ── */
+    /* &#9472;&#9472; Utilities &#9472;&#9472; */
     .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
     .section-label {
       font-family: 'DM Sans', sans-serif;
@@ -61,7 +61,7 @@
       line-height: 1.1;
     }
 
-    /* ── Nav ── */
+    /* &#9472;&#9472; Nav &#9472;&#9472; */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -76,32 +76,8 @@
       background: rgba(13, 27, 42, 0.97);
       box-shadow: 0 1px 30px rgba(0,0,0,0.3);
     }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .nav-logo img {
-      height: 44px;
-      width: auto;
-    }
-    .nav-logo-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-weight: 600;
-      color: var(--white);
-      letter-spacing: 0.05em;
-    }
-    .nav-logo-sub {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.6rem;
-      font-weight: 300;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: block;
-      margin-top: -2px;
-    }
+    .nav-logo a { display: block; line-height: 0; }
+    .nav-logo svg { display: block; }
     .nav-links {
       display: flex;
       list-style: none;
@@ -154,7 +130,7 @@
       transition: var(--transition);
     }
 
-    /* ── Hero ── */
+    /* &#9472;&#9472; Hero &#9472;&#9472; */
     #accueil {
       min-height: 100vh;
       background:
@@ -301,7 +277,7 @@
       color: rgba(255,255,255,0.45);
     }
 
-    /* ── Expertise ── */
+    /* &#9472;&#9472; Expertise &#9472;&#9472; */
     #expertise {
       padding: 7rem 0;
       background: var(--cream);
@@ -364,7 +340,7 @@
       opacity: 0.6;
     }
 
-    /* ── Approche ── */
+    /* &#9472;&#9472; Approche &#9472;&#9472; */
     #approche {
       padding: 7rem 0;
       background: var(--navy);
@@ -421,7 +397,7 @@
       color: rgba(255,255,255,0.5);
     }
 
-    /* ── Particuliers / Professionnels tabs ── */
+    /* &#9472;&#9472; Particuliers / Professionnels tabs &#9472;&#9472; */
     #particuliers, #professionels { padding: 7rem 0; }
     #professionels { background: var(--white); }
     .clients-tabs {
@@ -461,7 +437,7 @@
       margin-bottom: 3rem;
     }
 
-    /* ── Partners ── */
+    /* &#9472;&#9472; Partners &#9472;&#9472; */
     #partenaires {
       padding: 6rem 0;
       background: var(--cream);
@@ -487,13 +463,13 @@
     }
     .partners-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1px;
       background: rgba(0,0,0,0.07);
     }
     .partner-cell {
       background: var(--cream);
-      padding: 1.75rem 1.5rem;
+      padding: 2rem 1.75rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -501,7 +477,7 @@
     }
     .partner-cell:hover { background: var(--white); }
     .partner-cell img {
-      max-height: 36px;
+      max-height: 52px;
       width: auto;
       object-fit: contain;
       filter: grayscale(1) opacity(0.5);
@@ -519,7 +495,7 @@
       letter-spacing: 0.02em;
     }
 
-    /* ── FAQ ── */
+    /* &#9472;&#9472; FAQ &#9472;&#9472; */
     #faq {
       padding: 7rem 0;
       background: var(--white);
@@ -591,7 +567,7 @@
     }
     .faq-answer-inner li { margin-bottom: 0.25rem; }
 
-    /* ── Contact ── */
+    /* &#9472;&#9472; Contact &#9472;&#9472; */
     #contact {
       padding: 7rem 0;
       background: var(--navy);
@@ -742,7 +718,7 @@
     }
     .form-success.show { display: block; }
 
-    /* ── Footer ── */
+    /* &#9472;&#9472; Footer &#9472;&#9472; */
     footer {
       background: #080f18;
       padding: 3rem 0 2rem;
@@ -794,7 +770,7 @@
       color: rgba(255,255,255,0.2);
     }
 
-    /* ── Animations ── */
+    /* &#9472;&#9472; Animations &#9472;&#9472; */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -809,7 +785,7 @@
       transform: translateY(0);
     }
 
-    /* ── Mobile menu ── */
+    /* &#9472;&#9472; Mobile menu &#9472;&#9472; */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -834,11 +810,12 @@
       .approche-inner { grid-template-columns: 1fr; gap: 3rem; }
       .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
       .faq-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-      .partners-grid { grid-template-columns: repeat(3, 1fr); }
+      .partners-grid { grid-template-columns: repeat(2, 1fr); }
       .form-row { grid-template-columns: 1fr; }
       /* Hero mobile: stack columns, hide image */
       .hero-inner { grid-template-columns: 1fr; gap: 0; }
       .hero-image-col { display: none; }
+      #accueil { background-position: 70% center; }
       .trust-bar-inner { grid-template-columns: 1fr; }
       .trust-item { border-right: none; border-bottom: 1px solid rgba(200,169,110,0.1); }
       .trust-item:last-child { border-bottom: none; }
@@ -850,19 +827,34 @@
 </head>
 <body>
 
-  <!-- ── Navigation ── -->
+  <!-- &#9472;&#9472; Navigation &#9472;&#9472; -->
   <nav id="navbar">
     <div class="nav-logo">
-      <div>
-        <span class="nav-logo-text">Bazant</span>
-        <span class="nav-logo-sub">Conseil</span>
-      </div>
+      <a href="#accueil">
+        <svg width="160" height="44" viewBox="0 0 160 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- BAZANT in white serif style -->
+          <text x="0" y="30"
+            font-family="Cormorant Garamond, Georgia, serif"
+            font-size="32"
+            font-weight="400"
+            letter-spacing="2"
+            fill="white">BAZANT</text>
+          <!-- CONSEIL EN ASSURANCES in gold spaced caps -->
+          <text x="2" y="42"
+            font-family="DM Sans, sans-serif"
+            font-size="6.5"
+            font-weight="400"
+            letter-spacing="3.5"
+            fill="#c8a96e">CONSEIL EN ASSURANCES</text>
+        </svg>
+      </a>
     </div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#expertise">Expertise</a></li>
       <li><a href="#particuliers">Particuliers</a></li>
       <li><a href="#professionels">Professionnels</a></li>
+      <li><a href="emprunteur.html">Assurance emprunteur</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact" class="nav-cta">Obtenir un devis</a></li>
     </ul>
@@ -871,22 +863,22 @@
     </button>
   </nav>
 
-  <!-- ── Hero ── -->
+  <!-- &#9472;&#9472; Hero &#9472;&#9472; -->
   <section id="accueil">
     <div class="hero-grid-overlay"></div>
     <div class="container">
       <div class="hero-inner">
         <!-- Left: text -->
         <div class="hero-content">
-          <p class="hero-eyebrow">Courtier en Assurance Indépendant</p>
-          <h1 class="hero-title">Votre assurance,<br /><em>parfaitement négociée.</em></h1>
-          <p class="hero-subtitle">L'équipe BAZANT CONSEIL analyse vos besoins et sélectionne les garanties adaptées à votre situation au meilleur prix, auprès de partenaires de confiance.</p>
+          <p class="hero-eyebrow">Courtier en Assurance Ind&eacute;pendant</p>
+          <h1 class="hero-title">Votre assurance,<br /><em>parfaitement n&eacute;goci&eacute;e.</em></h1>
+          <p class="hero-subtitle">L'&eacute;quipe BAZANT CONSEIL analyse vos besoins et s&eacute;lectionne les garanties adapt&eacute;es &agrave; votre situation au meilleur prix, aupr&egrave;s de partenaires de confiance.</p>
           <div class="hero-actions">
-            <a href="#contact" class="btn-primary">Obtenir un devis →</a>
-            <a href="tel:0767916796" class="btn-outline">☎ 07.67.91.67.96</a>
+            <a href="#contact" class="btn-primary">Obtenir un devis &rarr;</a>
+            <a href="tel:0767916796" class="btn-outline">&#x260E; 07.67.91.67.96</a>
           </div>
         </div>
-        <!-- Right: image — remplacez le src par l'URL de votre image -->
+        <!-- Right: image &mdash; remplacez le src par l'URL de votre image -->
         <div class="hero-image-col"></div>
       </div>
     </div>
@@ -896,24 +888,24 @@
       <div class="container">
         <div class="trust-bar-inner">
           <div class="trust-item">
-            <span class="trust-icon">◈</span>
+            <span class="trust-icon">&#x25C8;</span>
             <div class="trust-text">
-              <strong>Courtier 100% indépendant</strong>
-              <span>Nous défendons uniquement vos intérêts</span>
+              <strong>Courtier 100% ind&eacute;pendant</strong>
+              <span>Nous d&eacute;fendons uniquement vos int&eacute;r&ecirc;ts</span>
             </div>
           </div>
           <div class="trust-item">
-            <span class="trust-icon">◆</span>
+            <span class="trust-icon">&#x25C6;</span>
             <div class="trust-text">
               <strong>Partenaires de confiance</strong>
-              <span>Accès aux meilleures compagnies du marché</span>
+              <span>Acc&egrave;s aux meilleures compagnies du march&eacute;</span>
             </div>
           </div>
           <div class="trust-item">
-            <span class="trust-icon">◇</span>
+            <span class="trust-icon">&#x25C7;</span>
             <div class="trust-text">
               <strong>Solutions sur mesure</strong>
-              <span>Des garanties adaptées à votre situation</span>
+              <span>Des garanties adapt&eacute;es &agrave; votre situation</span>
             </div>
           </div>
         </div>
@@ -921,87 +913,87 @@
     </div>
   </section>
 
-  <!-- ── Notre Expertise ── -->
+  <!-- &#9472;&#9472; Notre Expertise &#9472;&#9472; -->
   <section id="expertise">
     <div class="container">
       <div class="expertise-header reveal">
         <div>
           <p class="section-label">Notre expertise</p>
-          <h2 class="display-title expertise-title">Notre expertise<br />à votre service</h2>
+          <h2 class="display-title expertise-title">Notre expertise<br />&agrave; votre service</h2>
         </div>
-        <p class="expertise-intro">Des solutions performantes et adaptées pour votre entreprise ou à titre personnel. Nous comparons les meilleures offres pour garantir un choix optimal, en toute indépendance.</p>
+        <p class="expertise-intro">Des solutions performantes et adapt&eacute;es pour votre entreprise ou &agrave; titre personnel. Nous comparons les meilleures offres pour garantir un choix optimal, en toute ind&eacute;pendance.</p>
       </div>
 
       <div class="expertise-grid reveal">
         <div class="expertise-card">
           <span class="expertise-card-num">01</span>
-          <span class="expertise-card-icon">🏥</span>
-          <h3>Mutuelle santé</h3>
-          <p>Des solutions performantes et adaptées pour votre entreprise ou à titre personnel. Nous comparons les meilleures offres pour garantir un choix optimal.</p>
+          <span class="expertise-card-icon">&#x1F3E5;</span>
+          <h3>Mutuelle sant&eacute;</h3>
+          <p>Des solutions performantes et adapt&eacute;es pour votre entreprise ou &agrave; titre personnel. Nous comparons les meilleures offres pour garantir un choix optimal.</p>
         </div>
         <div class="expertise-card">
           <span class="expertise-card-num">02</span>
-          <span class="expertise-card-icon">🛡️</span>
-          <h3>Prévoyance</h3>
-          <p>Protégez vos revenus et vos proches en cas d'imprévu. Des solutions sur mesure pour sécuriser votre avenir en toute sérénité.</p>
+          <span class="expertise-card-icon">&#x1F6E1;</span>
+          <h3>Pr&eacute;voyance</h3>
+          <p>Prot&eacute;gez vos revenus et vos proches en cas d'impr&eacute;vu. Des solutions sur mesure pour s&eacute;curiser votre avenir en toute s&eacute;r&eacute;nit&eacute;.</p>
         </div>
         <div class="expertise-card">
           <span class="expertise-card-num">03</span>
-          <span class="expertise-card-icon">📈</span>
-          <h3>Épargne retraite</h3>
-          <p>Préparez sereinement votre avenir et vos revenus de demain. Nous vous accompagnons dans la construction d'une épargne adaptée à vos objectifs.</p>
+          <span class="expertise-card-icon">&#x1F4C8;</span>
+          <h3>&Eacute;pargne retraite</h3>
+          <p>Pr&eacute;parez sereinement votre avenir et vos revenus de demain. Nous vous accompagnons dans la construction d'une &eacute;pargne adapt&eacute;e &agrave; vos objectifs.</p>
         </div>
         <div class="expertise-card">
           <span class="expertise-card-num">04</span>
-          <span class="expertise-card-icon">🏡</span>
+          <span class="expertise-card-icon">&#x1F3E1;</span>
           <h3>Assurance emprunteur</h3>
-          <p>Sécurisez votre prêt avec une assurance parfaitement adaptée. Bénéficiez de garanties optimisées au meilleur tarif.</p>
+          <p>S&eacute;curisez votre pr&ecirc;t avec une assurance parfaitement adapt&eacute;e. B&eacute;n&eacute;ficiez de garanties optimis&eacute;es au meilleur tarif.</p>
         </div>
         <div class="expertise-card">
           <span class="expertise-card-num">05</span>
-          <span class="expertise-card-icon">🔑</span>
-          <h3>Homme clé</h3>
-          <p>Protégez votre entreprise face aux risques liés à un dirigeant clé. Assurez la continuité de votre activité en toutes circonstances.</p>
+          <span class="expertise-card-icon">&#x1F511;</span>
+          <h3>Homme cl&eacute;</h3>
+          <p>Prot&eacute;gez votre entreprise face aux risques li&eacute;s &agrave; un dirigeant cl&eacute;. Assurez la continuit&eacute; de votre activit&eacute; en toutes circonstances.</p>
         </div>
         <div class="expertise-card">
           <span class="expertise-card-num">06</span>
-          <span class="expertise-card-icon">✈️</span>
+          <span class="expertise-card-icon">&#x2708;</span>
           <h3>Voyage</h3>
-          <p>Partez l'esprit tranquille avec une couverture adaptée. Profitez de garanties complètes pour tous vos déplacements.</p>
+          <p>Partez l'esprit tranquille avec une couverture adapt&eacute;e. Profitez de garanties compl&egrave;tes pour tous vos d&eacute;placements.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Notre Approche ── -->
+  <!-- &#9472;&#9472; Notre Approche &#9472;&#9472; -->
   <section id="approche">
     <div class="container">
       <div class="approche-inner">
         <div class="approche-left reveal">
           <p class="section-label" style="color:var(--gold);">Notre approche</p>
           <h2 class="display-title approche-title">Un accompagnement<br /><em style="color:var(--gold);font-style:italic;">sur-mesure</em></h2>
-          <p class="approche-desc">Nous effectuons un audit complet de votre situation et vous proposons les meilleures solutions, sans obligation contractuelle avec un assureur. Notre seul intérêt, c'est le vôtre.</p>
+          <p class="approche-desc">Nous effectuons un audit complet de votre situation et vous proposons les meilleures solutions, sans obligation contractuelle avec un assureur. Notre seul int&eacute;r&ecirc;t, c'est le v&ocirc;tre.</p>
         </div>
         <div class="steps reveal">
           <div class="step">
             <span class="step-number">01</span>
             <div class="step-content">
               <h3>Analyse et validation de vos attentes</h3>
-              <p>Nous effectuons un audit des contrats en vigueur et validons ensemble vos besoins avec nos préconisations.</p>
+              <p>Nous effectuons un audit des contrats en vigueur et validons ensemble vos besoins avec nos pr&eacute;conisations.</p>
             </div>
           </div>
           <div class="step">
             <span class="step-number">02</span>
             <div class="step-content">
-              <h3>Négociation auprès de nos partenaires</h3>
-              <p>Nous sollicitons l'ensemble de nos partenaires pour vous trouver les garanties adéquates avec une tarification juste.</p>
+              <h3>N&eacute;gociation aupr&egrave;s de nos partenaires</h3>
+              <p>Nous sollicitons l'ensemble de nos partenaires pour vous trouver les garanties ad&eacute;quates avec une tarification juste.</p>
             </div>
           </div>
           <div class="step">
             <span class="step-number">03</span>
             <div class="step-content">
-              <h3>Mise en place d'un contrat optimisé</h3>
-              <p>Simplification des démarches : nous vous accompagnons de la résiliation à la mise en place de vos nouveaux contrats.</p>
+              <h3>Mise en place d'un contrat optimis&eacute;</h3>
+              <p>Simplification des d&eacute;marches : nous vous accompagnons de la r&eacute;siliation &agrave; la mise en place de vos nouveaux contrats.</p>
             </div>
           </div>
         </div>
@@ -1009,37 +1001,37 @@
     </div>
   </section>
 
-  <!-- ── Particuliers ── -->
+  <!-- &#9472;&#9472; Particuliers &#9472;&#9472; -->
   <section id="particuliers">
     <div class="container">
       <div class="reveal">
         <p class="section-label">Particuliers</p>
         <h2 class="display-title clients-section-title">Solutions pour<br />les particuliers</h2>
-        <p class="clients-section-desc">Mutuelle santé, prévoyance, épargne retraite, assurance emprunteur ou voyage — nous trouvons la couverture adaptée à votre vie et votre budget.</p>
-        <a href="#contact" class="btn-primary" style="display:inline-flex;">Obtenir un devis particulier →</a>
+        <p class="clients-section-desc">Mutuelle sant&eacute;, pr&eacute;voyance, &eacute;pargne retraite, assurance emprunteur ou voyage &mdash; nous trouvons la couverture adapt&eacute;e &agrave; votre vie et votre budget.</p>
+        <a href="#contact" class="btn-primary" style="display:inline-flex;">Obtenir un devis particulier &rarr;</a>
       </div>
     </div>
   </section>
 
-  <!-- ── Professionnels ── -->
+  <!-- &#9472;&#9472; Professionnels &#9472;&#9472; -->
   <section id="professionels">
     <div class="container">
       <div class="reveal">
         <p class="section-label">Professionnels</p>
         <h2 class="display-title clients-section-title">Solutions pour<br />les professionnels</h2>
-        <p class="clients-section-desc">Mutuelle d'entreprise, prévoyance collective, homme clé, assurance emprunteur professionnel — nous protégeons votre activité et vos équipes.</p>
-        <a href="#contact" class="btn-primary" style="display:inline-flex;">Obtenir un devis professionnel →</a>
+        <p class="clients-section-desc">Mutuelle d'entreprise, pr&eacute;voyance collective, homme cl&eacute;, assurance emprunteur professionnel &mdash; nous prot&eacute;geons votre activit&eacute; et vos &eacute;quipes.</p>
+        <a href="#contact" class="btn-primary" style="display:inline-flex;">Obtenir un devis professionnel &rarr;</a>
       </div>
     </div>
   </section>
 
-  <!-- ── Partenaires ── -->
+  <!-- &#9472;&#9472; Partenaires &#9472;&#9472; -->
   <section id="partenaires">
     <div class="container">
       <div class="partners-header reveal">
         <p class="section-label" style="justify-content:center;">Nos partenaires</p>
         <h2 class="display-title">Des partenaires de confiance</h2>
-        <p>BAZANT CONSEIL ne possède aucune obligation contractuelle avec une entreprise d'assurance, permettant ainsi un placement en toute indépendance.</p>
+        <p>BAZANT CONSEIL ne poss&egrave;de aucune obligation contractuelle avec une entreprise d'assurance, permettant ainsi un placement en toute ind&eacute;pendance.</p>
       </div>
       <div class="partners-grid reveal">
         <div class="partner-cell"><img src="images/logo_april.webp" alt="April" /></div>
@@ -1057,19 +1049,20 @@
         <div class="partner-cell"><img src="images/logo_gsmc.webp" alt="GSMC" /></div>
         <div class="partner-cell"><img src="images/logo_utwin.webp" alt="Utwin" /></div>
         <div class="partner-cell"><img src="images/logo_abeille.webp" alt="Abeille" /></div>
+        <div class="partner-cell"><img src="images/logo_benefiz.png" alt="Benefiz" /></div>
       </div>
-      <p class="partners-note reveal">Notre force réside dans notre présence auprès d'un large réseau : assureurs, mutualistes et acteurs institutionnels.</p>
+      <p class="partners-note reveal">Notre force r&eacute;side dans notre pr&eacute;sence aupr&egrave;s d'un large r&eacute;seau : assureurs, mutualistes et acteurs institutionnels.</p>
     </div>
   </section>
 
-  <!-- ── FAQ ── -->
+  <!-- &#9472;&#9472; FAQ &#9472;&#9472; -->
   <section id="faq">
     <div class="container">
       <div class="faq-layout">
         <div class="reveal">
           <p class="section-label">FAQ</p>
-          <h2 class="display-title">Questions<br />fréquentes</h2>
-          <p>Vous avez d'autres questions ? Contactez-nous directement, nous vous répondrons rapidement.</p>
+          <h2 class="display-title">Questions<br />fr&eacute;quentes</h2>
+          <p>Vous avez d'autres questions ? Contactez-nous directement, nous vous r&eacute;pondrons rapidement.</p>
         </div>
         <div class="faq-list reveal">
 
@@ -1080,7 +1073,7 @@
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Parce que vous gagnez du temps et de l'argent. Nous analysons votre situation, comparons des dizaines d'offres et négocions pour vous obtenir le meilleur rapport garanties/prix, sans frais cachés. Vous profitez d'un accompagnement expert et d'un contrat réellement adapté à vos besoins.
+                Parce que vous gagnez du temps et de l'argent. Nous analysons votre situation, comparons des dizaines d'offres et n&eacute;gocions pour vous obtenir le meilleur rapport garanties/prix, sans frais cach&eacute;s. Vous profitez d'un accompagnement expert et d'un contrat r&eacute;ellement adapt&eacute; &agrave; vos besoins.
               </div>
             </div>
           </div>
@@ -1092,37 +1085,37 @@
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Oui. Depuis les lois de résiliation infra-annuelle (loi Hamon, loi Bourquin, réforme 2023–2026), vous pouvez résilier plusieurs types de contrats à tout moment après la première année, sans frais ni justification. Cela concerne notamment :
+                Oui. Depuis les lois de r&eacute;siliation infra-annuelle (loi Hamon, loi Bourquin, r&eacute;forme 2023&ndash;2026), vous pouvez r&eacute;silier plusieurs types de contrats &agrave; tout moment apr&egrave;s la premi&egrave;re ann&eacute;e, sans frais ni justification. Cela concerne notamment :
                 <ul>
-                  <li>la mutuelle / complémentaire santé,</li>
+                  <li>la mutuelle / compl&eacute;mentaire sant&eacute;,</li>
                   <li>l'assurance emprunteur,</li>
-                  <li>certaines assurances prévoyance selon les contrats.</li>
+                  <li>certaines assurances pr&eacute;voyance selon les contrats.</li>
                 </ul>
-                Votre courtier vous accompagne pour vérifier votre éligibilité et gérer la résiliation à votre place.
+                Votre courtier vous accompagne pour v&eacute;rifier votre &eacute;ligibilit&eacute; et g&eacute;rer la r&eacute;siliation &agrave; votre place.
               </div>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              En quoi l'accompagnement de Bazant conseil est-il différent ?
+              En quoi l'accompagnement de Bazant conseil est-il diff&eacute;rent ?
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Nous sommes 100 % indépendants. Notre seul intérêt, c'est le vôtre. Nous sélectionnons les meilleures solutions du marché, pas celles d'un seul organisme. Résultat : des garanties plus pertinentes, des tarifs optimisés et un suivi personnalisé tout au long de votre contrat.
+                Nous sommes 100 % ind&eacute;pendants. Notre seul int&eacute;r&ecirc;t, c'est le v&ocirc;tre. Nous s&eacute;lectionnons les meilleures solutions du march&eacute;, pas celles d'un seul organisme. R&eacute;sultat : des garanties plus pertinentes, des tarifs optimis&eacute;s et un suivi personnalis&eacute; tout au long de votre contrat.
               </div>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              Puis-je vraiment économiser en changeant de mutuelle ?
+              Puis-je vraiment &eacute;conomiser en changeant de mutuelle ?
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Oui, et souvent bien plus que vous ne l'imaginez. Grâce aux lois de résiliation simplifiées, vous pouvez changer facilement et profiter d'offres plus compétitives. Nous identifions pour vous les économies possibles tout en renforçant votre niveau de protection.
+                Oui, et souvent bien plus que vous ne l'imaginez. Gr&acirc;ce aux lois de r&eacute;siliation simplifi&eacute;es, vous pouvez changer facilement et profiter d'offres plus comp&eacute;titives. Nous identifions pour vous les &eacute;conomies possibles tout en renfor&ccedil;ant votre niveau de protection.
               </div>
             </div>
           </div>
@@ -1134,19 +1127,19 @@
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Le bon niveau dépend de votre situation : âge, profession, revenus, composition familiale, risques spécifiques, reste à charge actuel. Un courtier analyse vos besoins réels, compare les offres du marché et vous propose une couverture ni insuffisante, ni surdimensionnée, avec un rapport garanties/prix optimal.
+                Le bon niveau d&eacute;pend de votre situation : &acirc;ge, profession, revenus, composition familiale, risques sp&eacute;cifiques, reste &agrave; charge actuel. Un courtier analyse vos besoins r&eacute;els, compare les offres du march&eacute; et vous propose une couverture ni insuffisante, ni surdimensionn&eacute;e, avec un rapport garanties/prix optimal.
               </div>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              Suis-je couvert à l'étranger avec ma mutuelle ?
+              Suis-je couvert &agrave; l'&eacute;tranger avec ma mutuelle ?
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                La plupart des mutuelles couvrent uniquement les soins urgents en Europe, et très partiellement hors UE. Pour un voyage, un stage ou une expatriation, il est souvent nécessaire de souscrire une assurance santé internationale couvrant les frais médicaux, le rapatriement, l'hospitalisation et les soins courants. Votre courtier vous oriente vers la solution adaptée.
+                La plupart des mutuelles couvrent uniquement les soins urgents en Europe, et tr&egrave;s partiellement hors UE. Pour un voyage, un stage ou une expatriation, il est souvent n&eacute;cessaire de souscrire une assurance sant&eacute; internationale couvrant les frais m&eacute;dicaux, le rapatriement, l'hospitalisation et les soins courants. Votre courtier vous oriente vers la solution adapt&eacute;e.
               </div>
             </div>
           </div>
@@ -1156,43 +1149,43 @@
     </div>
   </section>
 
-  <!-- ── Contact ── -->
+  <!-- &#9472;&#9472; Contact &#9472;&#9472; -->
   <section id="contact">
     <div class="container">
       <div class="contact-layout">
         <div class="reveal">
           <p class="section-label" style="color:var(--gold);">Contact</p>
           <h2 class="display-title contact-left">Un besoin ?<br /><em style="color:var(--gold);font-style:italic;">Parlons-en.</em></h2>
-          <p style="color:rgba(255,255,255,0.55);font-size:0.9rem;line-height:1.8;margin-bottom:2.5rem;">Effectuons ensemble une analyse de vos contrats. Réponse sous 24h.</p>
+          <p style="color:rgba(255,255,255,0.55);font-size:0.9rem;line-height:1.8;margin-bottom:2.5rem;">Effectuons ensemble une analyse de vos contrats. R&eacute;ponse sous 24h.</p>
           <div class="contact-info">
             <div class="contact-info-item">
-              <div class="contact-info-icon">☎</div>
+              <div class="contact-info-icon">&#x260E;</div>
               <div class="contact-info-text">
                 <a href="tel:0767916796">07.67.91.67.96</a>
                 <small>Appel ou rappel</small>
               </div>
             </div>
             <div class="contact-info-item">
-              <div class="contact-info-icon">✉</div>
+              <div class="contact-info-icon">&#x2709;</div>
               <div class="contact-info-text">
                 <a href="mailto:info@bazant.fr">info@bazant.fr</a>
-                <small>Réponse sous 24h</small>
+                <small>R&eacute;ponse sous 24h</small>
               </div>
             </div>
           </div>
         </div>
 
         <div class="reveal">
-          <!-- Replace action with own Formspree endpoint: https://formspree.io -->
+          <!-- Replace action with your Formspree endpoint: https://formspree.io -->
           <form
             class="contact-form"
-            action="https://formspree.io/f/xlgyrkqb"
+            action="https://formspree.io/f/ID_HERE"
             method="POST"
             id="contactForm"
           >
             <div class="form-row">
               <div class="form-group">
-                <label for="prenom">Prénom</label>
+                <label for="prenom">Pr&eacute;nom</label>
                 <input type="text" id="prenom" name="prenom" placeholder="Jean" required />
               </div>
               <div class="form-group">
@@ -1205,32 +1198,32 @@
               <input type="email" id="email" name="email" placeholder="jean@exemple.fr" required />
             </div>
             <div class="form-group">
-              <label for="telephone">Téléphone</label>
+              <label for="telephone">T&eacute;l&eacute;phone</label>
               <input type="tel" id="telephone" name="telephone" placeholder="06 12 34 56 78" />
             </div>
             <div class="form-group">
               <label for="sujet">Besoin</label>
               <select id="sujet" name="sujet" required>
-                <option value="" disabled selected>Sélectionnez votre besoin</option>
-                <option value="mutuelle">Mutuelle santé</option>
-                <option value="prevoyance">Prévoyance</option>
-                <option value="epargne">Épargne retraite</option>
+                <option value="" disabled selected>S&eacute;lectionnez votre besoin</option>
+                <option value="mutuelle">Mutuelle sant&eacute;</option>
+                <option value="prevoyance">Pr&eacute;voyance</option>
+                <option value="epargne">&Eacute;pargne retraite</option>
                 <option value="emprunteur">Assurance emprunteur</option>
-                <option value="homme-cle">Homme clé</option>
+                <option value="homme-cle">Homme cl&eacute;</option>
                 <option value="voyage">Voyage</option>
                 <option value="autre">Autre</option>
               </select>
             </div>
             <div class="form-group">
               <label for="message">Message (optionnel)</label>
-              <textarea id="message" name="message" placeholder="Décrivez brièvement votre situation…"></textarea>
+              <textarea id="message" name="message" placeholder="D&eacute;crivez bri&egrave;vement votre situation&#8230;"></textarea>
             </div>
             <div class="form-submit">
-              <button type="submit">Envoyer ma demande →</button>
-              <p class="form-legal">Vos données sont traitées conformément à notre politique de confidentialité et ne sont jamais revendues.</p>
+              <button type="submit">Envoyer ma demande &rarr;</button>
+              <p class="form-legal">Vos donn&eacute;es sont trait&eacute;es conform&eacute;ment &agrave; notre politique de confidentialit&eacute; et ne sont jamais revendues.</p>
             </div>
             <div class="form-success" id="formSuccess">
-              ✓ Votre message a bien été envoyé. Nous vous répondrons sous 24h.
+              &#x2713; Votre message a bien &eacute;t&eacute; envoy&eacute;. Nous vous r&eacute;pondrons sous 24h.
             </div>
           </form>
         </div>
@@ -1238,11 +1231,11 @@
     </div>
   </section>
 
-  <!-- ── Footer ── -->
+  <!-- &#9472;&#9472; Footer &#9472;&#9472; -->
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-logo">Bazant <span>Conseil</span></div>
+        <div class="footer-logo">BAZANT <span>CONSEIL EN ASSURANCES</span></div>
         <ul class="footer-links">
           <li><a href="#accueil">Accueil</a></li>
           <li><a href="#expertise">Expertise</a></li>
@@ -1252,20 +1245,20 @@
         </ul>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">© 2026 Bazant Conseil – Courtier en assurance. Tous droits réservés.</p>
-        <p class="footer-legal">ORIAS n° XXXXXXXX – Immatriculé au Registre des Intermédiaires en Assurance</p>
+        <p class="footer-copy">&#169; 2026 Bazant Conseil &ndash; Courtier en assurance. Tous droits r&eacute;serv&eacute;s.</p>
+        <p class="footer-legal">ORIAS n&#176; XXXXXXXX &ndash; Immatricul&eacute; au Registre des Interm&eacute;diaires en Assurance</p>
       </div>
     </div>
   </footer>
 
   <script>
-    // ── Nav scroll ──
+    // &#9472;&#9472; Nav scroll &#9472;&#9472;
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     });
 
-    // ── Burger menu ──
+    // &#9472;&#9472; Burger menu &#9472;&#9472;
     const burger = document.getElementById('burger');
     const navLinks = document.getElementById('navLinks');
     burger.addEventListener('click', () => {
@@ -1279,7 +1272,7 @@
       });
     });
 
-    // ── Reveal on scroll ──
+    // &#9472;&#9472; Reveal on scroll &#9472;&#9472;
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
@@ -1291,7 +1284,7 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
 
-    // ── FAQ accordion ──
+    // &#9472;&#9472; FAQ accordion &#9472;&#9472;
     function toggleFaq(btn) {
       const item = btn.closest('.faq-item');
       const answer = item.querySelector('.faq-answer');
@@ -1307,13 +1300,13 @@
       }
     }
 
-    // ── Form with Formspree ──
+    // &#9472;&#9472; Form with Formspree &#9472;&#9472;
     const form = document.getElementById('contactForm');
     const successMsg = document.getElementById('formSuccess');
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
-      btn.textContent = 'Envoi en cours…';
+      btn.textContent = 'Envoi en cours...';
       btn.disabled = true;
       try {
         const res = await fetch(form.action, {
@@ -1324,13 +1317,13 @@
         if (res.ok) {
           form.reset();
           successMsg.classList.add('show');
-          btn.textContent = 'Message envoyé ✓';
+          btn.textContent = 'Message envoye - Merci !';
         } else {
-          btn.textContent = 'Erreur — réessayez';
+          btn.textContent = 'Erreur - reessayez';
           btn.disabled = false;
         }
       } catch {
-        btn.textContent = 'Erreur réseau — réessayez';
+        btn.textContent = 'Erreur reseau - reessayez';
         btn.disabled = false;
       }
     });
