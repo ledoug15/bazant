@@ -823,6 +823,14 @@
     @media (max-width: 500px) {
       .partners-grid { grid-template-columns: repeat(2, 1fr); }
     }
+  
+    /* Mobile overflow fix: let footer links wrap instead of widening the page */
+    .footer-links{flex-wrap:wrap;gap:0.75rem 1.5rem;}
+    @media(max-width:768px){
+      .footer-inner{justify-content:center;text-align:center;}
+      .footer-links{justify-content:center;}
+      .footer-bottom{justify-content:center;text-align:center;}
+    }
   </style>
 </head>
 <body>
@@ -1179,7 +1187,7 @@
           <!-- Replace action with your Formspree endpoint: https://formspree.io -->
           <form
             class="contact-form"
-            action="https://formspree.io/f/ID_HERE"
+            action="https://formspree.io/f/xqevdooa"
             method="POST"
             id="contactForm"
           >
@@ -1239,14 +1247,14 @@
         <ul class="footer-links">
           <li><a href="#accueil">Accueil</a></li>
           <li><a href="#expertise">Expertise</a></li>
-          <li><a href="#partenaires">Partenaires</a></li>
-          <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="mentions-legales.html">Mentions l&eacute;gales</a></li>
+          <li><a href="politique-confidentialite.html">Confidentialit&eacute;</a></li>
         </ul>
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">&#169; 2026 Bazant Conseil &ndash; Courtier en assurance. Tous droits r&eacute;serv&eacute;s.</p>
-        <p class="footer-legal">ORIAS n&#176; XXXXXXXX &ndash; Immatricul&eacute; au Registre des Interm&eacute;diaires en Assurance</p>
+        <p class="footer-legal">ORIAS n&#176; 26006422 &ndash; SIREN 103 544 185 &ndash; RCS &Eacute;vry</p>
       </div>
     </div>
   </footer>
