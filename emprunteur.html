@@ -151,8 +151,16 @@
       .burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
       .burger.open span:nth-child(2){opacity:0;}
       .burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
-      .form-layout{grid-template-columns:1fr;} .sidebar{position:static;}
+      .form-layout{grid-template-columns:minmax(0,1fr);} .sidebar{position:static;}
       .field-row{grid-template-columns:1fr;} .form-card{padding:1.5rem;}
+    }
+  
+    /* Mobile overflow fix: let footer links wrap instead of widening the page */
+    .footer-links{flex-wrap:wrap;gap:0.75rem 1.5rem;}
+    @media(max-width:768px){
+      .footer-inner{justify-content:center;text-align:center;}
+      .footer-links{justify-content:center;}
+      .footer-bottom{justify-content:center;text-align:center;}
     }
   </style>
 </head>
@@ -717,21 +725,22 @@
       <div class="footer-inner">
         <div class="footer-logo">BAZANT <span>CONSEIL EN ASSURANCES</span></div>
         <ul class="footer-links">
-          <li><a href="index.html#accueil">Accueil</a></li>
-          <li><a href="index.html#expertise">Expertise</a></li>
-          <li><a href="index.html#partenaires">Partenaires</a></li>
-          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html">Accueil</a></li>
           <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="mentions-legales.html">Mentions l&eacute;gales</a></li>
+          <li><a href="politique-confidentialite.html">Confidentialit&eacute;</a></li>
         </ul>
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">&copy; 2026 Bazant Conseil &ndash; Courtier en assurance. Tous droits r&eacute;serv&eacute;s.</p>
-        <p class="footer-legal">ORIAS n&deg; XXXXXXXX &ndash; Immatricul&eacute; au Registre des Interm&eacute;diaires en Assurance</p>
+        <p class="footer-legal">ORIAS n&deg; 26006422 &ndash; SIREN 103 544 185 &ndash; RCS &Eacute;vry</p>
       </div>
     </div>
   </footer>
 
   <script>
+
+    const FORMSPREE_URL = 'https://formspree.io/f/xqevdooa';
     const stepNames = ['Le pr\u00eat','L\'emprunteur','Situation personnelle','Vos coordonn\u00e9es'];
     const totalSteps = 4;
 
@@ -809,7 +818,7 @@
       });
 
       try {
-        const res = await fetch('https://formspree.io/f/ID_HERE', {
+        const res = await fetch(FORMSPREE_URL, {
           method: 'POST', body: data, headers: { Accept: 'application/json' }
         });
         if (res.ok) { goStep(5); }
