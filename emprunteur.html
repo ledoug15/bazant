@@ -98,7 +98,7 @@
     .slider-val{font-size:0.9rem;font-weight:500;color:var(--gold);min-width:40px;text-align:right;}
 
     /* Conditional blocks */
-    .cond-block{border:1px solid rgba(200,169,110,0.25);border-radius:2px;padding:1.5rem;background:rgba(200,169,110,0.03);margin-top:0.75rem;display:none;}
+    .cond-block{border:1px solid rgba(200,169,110,0.25);border-radius:2px;padding:1.5rem;background:rgba(200,169,110,0.03);margin:0.75rem 0 1.25rem;display:none;}
     .cond-block.show{display:block;}
     .cond-block-label{font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
 
@@ -153,6 +153,7 @@
       .burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
       .form-layout{grid-template-columns:minmax(0,1fr);} .sidebar{position:static;}
       .field-row{grid-template-columns:1fr;} .form-card{padding:1.5rem;}
+      .radio-btn{min-width:110px;padding:0.65rem 0.5rem;}
     }
   
     /* Mobile overflow fix: let footer links wrap instead of widening the page */
@@ -215,7 +216,7 @@
             </div>
           </div>
 
-          <!-- ═══ STEP 1 : Le pret ═══ -->
+          <!-- STEP 1 : Le pret immobilier -->
           <div class="step-page active" id="step-1">
             <p class="step-title">Le pr&ecirc;t immobilier</p>
             <p class="step-sub">Informations sur le pr&ecirc;t &agrave; assurer.</p>
@@ -223,22 +224,58 @@
             <div class="field">
               <label>Type de projet</label>
               <div class="radio-group">
-                <div class="radio-btn selected" onclick="selectRadio(this,'projet')">Acquisition</div>
-                <div class="radio-btn" onclick="selectRadio(this,'projet')">Ren&eacute;gociation</div>
-                <div class="radio-btn" onclick="selectRadio(this,'projet')">Investissement locatif</div>
-              </div>
+                  <div class="radio-btn selected" onclick="selectRadio(this,'projet')">Acquisition</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'projet')">Ren&eacute;gociation</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'projet')">Investissement locatif</div>
+                </div>
             </div>
 
             <div class="field-row">
               <div class="field">
-                <label>Montant du pr&ecirc;t (&euro;)</label>
-                <input type="number" name="montant_pret" placeholder="250 000" min="0" />
+                <label>Pr&ecirc;t travaux ?</label>
+                <div class="radio-group">
+                  <div class="radio-btn selected" onclick="selectRadio(this,'travaux')">Non</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'travaux')">Oui</div>
+                </div>
               </div>
               <div class="field">
-                <label>Dur&eacute;e du pr&ecirc;t (ans)</label>
-                <input type="number" name="duree_pret" placeholder="20" min="1" max="30" />
+                <label>Pr&ecirc;t diff&eacute;r&eacute; ?</label>
+                <div class="radio-group">
+                <div class="radio-btn selected" id="diff-non" onclick="toggleCond('diff-non','diff-oui','diff-block')">Non</div>
+                <div class="radio-btn" id="diff-oui" onclick="toggleCond('diff-oui','diff-non','diff-block')">Oui</div>
+              </div>
               </div>
             </div>
+            <div class="cond-block" id="diff-block">
+              <div class="field" style="margin-bottom:0;">
+                <label>Dur&eacute;e du diff&eacute;r&eacute; (mois)</label>
+                <input type="number" name="duree_differe" placeholder="12" min="1" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Montant du pr&ecirc;t (&euro;)</label>
+              <input type="number" name="montant_pret" placeholder="250 000" min="0" />
+            </div>
+
+            <div class="field">
+              <label>Type de pr&ecirc;t</label>
+              <div class="radio-group">
+                  <div class="radio-btn selected" onclick="selectRadio(this,'type_pret')">Amortissable</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'type_pret')">In fine</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'type_pret')">Relais</div>
+                </div>
+            </div>
+
+            <p class="form-section-label">Tableau d&apos;amortissement</p>
+
+            <div class="field">
+              <label>D&eacute;poser votre tableau (optionnel)</label>
+              <input type="file" name="tableau" accept=".pdf,.xlsx,.xls,.csv" />
+              <p class="field-hint">PDF ou Excel accept&eacute;s &mdash; permet un devis plus pr&eacute;cis</p>
+            </div>
+
+            <p class="field-hint" style="margin:0 0 1rem;">Ou renseignez directement les informations du pr&ecirc;t :</p>
 
             <div class="field-row">
               <div class="field">
@@ -246,24 +283,30 @@
                 <input type="date" name="date_debut" />
               </div>
               <div class="field">
-                <label>Taux du pr&ecirc;t (%)</label>
-                <input type="number" name="taux_pret" placeholder="3.5" step="0.01" min="0" max="20" />
+                <label>Dur&eacute;e du pr&ecirc;t (ans)</label>
+                <input type="number" name="duree_pret" placeholder="20" min="1" max="30" />
               </div>
             </div>
 
             <div class="field">
-              <label>Type de pr&ecirc;t</label>
+              <label>Taux du pr&ecirc;t hors assurance (%)</label>
+              <input type="number" name="taux_pret" placeholder="3.5" step="0.01" min="0" max="20" />
+            </div>
+
+            <p class="form-section-label">Organisme pr&ecirc;teur</p>
+
+            <div class="field">
+              <label>Banque / organisme pr&ecirc;teur</label>
+              <input type="text" name="banque" placeholder="Ex : BNP Paribas, LCL, Soci&eacute;t&eacute; G&eacute;n&eacute;rale..." />
+            </div>
+
+            <div class="field">
+              <label>Un accord de principe a-t-il &eacute;t&eacute; obtenu ?</label>
               <div class="radio-group">
-                <div class="radio-btn selected" onclick="selectRadio(this,'type_pret')">Amortissable</div>
-                <div class="radio-btn" onclick="selectRadio(this,'type_pret')">In fine</div>
-                <div class="radio-btn" onclick="selectRadio(this,'type_pret')">Relais</div>
-              </div>
-            </div>
-
-            <div class="field">
-              <label>Tableau d&apos;amortissement (optionnel)</label>
-              <input type="file" name="tableau" accept=".pdf,.xlsx,.xls,.csv" />
-              <p class="field-hint">PDF ou Excel accept&eacute;s &mdash; permet un devis plus pr&eacute;cis</p>
+                  <div class="radio-btn selected" onclick="selectRadio(this,'accord')">Non</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'accord')">En cours</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'accord')">Oui</div>
+                </div>
             </div>
 
             <p class="form-section-label">Co-emprunteur</p>
@@ -276,14 +319,12 @@
               </div>
             </div>
 
-            <div class="cond-block" id="co-block" style="display:none;"></div>
-
             <div class="nav-btns">
               <button class="btn-next" onclick="goStep(2)">Suivant &rarr;</button>
             </div>
           </div>
 
-          <!-- ═══ STEP 2 : Emprunteur principal ═══ -->
+          <!-- STEP 2 : Emprunteur principal -->
           <div class="step-page" id="step-2">
             <p class="step-title">L&apos;emprunteur principal</p>
             <p class="step-sub">Votre profil et vos garanties souhait&eacute;es.</p>
@@ -315,10 +356,34 @@
             <div class="field">
               <label>Nationalit&eacute;</label>
               <div class="radio-group">
-                <div class="radio-btn selected" onclick="selectRadio(this,'nationalite')">Fran&ccedil;aise</div>
-                <div class="radio-btn" onclick="selectRadio(this,'nationalite')">Europ&eacute;enne</div>
-                <div class="radio-btn" onclick="selectRadio(this,'nationalite')">Autre</div>
-              </div>
+                  <div class="radio-btn selected" onclick="selectRadio(this,'nationalite')">Fran&ccedil;aise</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'nationalite')">Europ&eacute;enne</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'nationalite')">Autre</div>
+                </div>
+            </div>
+
+            <p class="form-section-label">Situation familiale</p>
+
+            <div class="field">
+              <label>Situation familiale</label>
+              <div class="radio-group">
+                  <div class="radio-btn selected" onclick="selectRadio(this,'situation')">C&eacute;libataire</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'situation')">Mari&eacute;(e)</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'situation')">Pacs&eacute;(e)</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'situation')">En couple</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'situation')">Divorc&eacute;(e)</div>
+                </div>
+            </div>
+
+            <div class="field">
+              <label>Nombre d&apos;enfants &agrave; charge</label>
+              <div class="radio-group">
+                  <div class="radio-btn selected" onclick="selectRadio(this,'enfants')">0</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'enfants')">1</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'enfants')">2</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'enfants')">3</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'enfants')">4+</div>
+                </div>
             </div>
 
             <p class="form-section-label">Situation professionnelle</p>
@@ -342,12 +407,6 @@
                 <label>Profession</label>
                 <input type="text" name="profession" placeholder="Ex : Cadre, M&eacute;decin..." />
               </div>
-            </div>
-
-            <div class="field">
-              <label>Revenu annuel net (&euro;)</label>
-              <input type="number" name="revenu" placeholder="45 000" min="0" />
-              <p class="field-hint">Utile pour calibrer la garantie ITT / IPT</p>
             </div>
 
             <p class="form-section-label">Sant&eacute; &amp; habitudes</p>
@@ -418,37 +477,14 @@
 
             <div class="field">
               <label>Garanties souhait&eacute;es</label>
-              <div class="checkbox-group">
-                <div class="check-btn selected" onclick="this.classList.toggle('selected')">D&eacute;c&egrave;s</div>
-                <div class="check-btn selected" onclick="this.classList.toggle('selected')">PTIA</div>
-                <div class="check-btn" onclick="this.classList.toggle('selected')">ITT</div>
-                <div class="check-btn" onclick="this.classList.toggle('selected')">IPT</div>
-                <div class="check-btn" onclick="this.classList.toggle('selected')">IPP</div>
-                <div class="check-btn" onclick="this.classList.toggle('selected')">PE (Perte d&apos;emploi)</div>
-              </div>
-            </div>
-
-            <div class="field">
-              <label>Contrat actuel &agrave; r&eacute;silier ?</label>
               <div class="radio-group">
-                <div class="radio-btn selected" id="res-non" onclick="toggleCond('res-non','res-oui','res-block')">Non / Nouveau pr&ecirc;t</div>
-                <div class="radio-btn" id="res-oui" onclick="toggleCond('res-oui','res-non','res-block')">Oui &mdash; changement</div>
-              </div>
-            </div>
-            <div class="cond-block" id="res-block">
-              <div class="field-row">
-                <div class="field">
-                  <label>Assureur actuel</label>
-                  <input type="text" name="assureur_actuel" placeholder="Ex : Cr&eacute;dit Agricole..." />
+                  <div class="radio-btn selected" onclick="selectRadio(this,'garanties')">&Agrave; l&apos;identique</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'garanties')">Ren&eacute;goci&eacute;es</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'garanties')">&Agrave; la hausse</div>
                 </div>
-                <div class="field">
-                  <label>Prime mensuelle actuelle (&euro;)</label>
-                  <input type="number" name="prime_actuelle" placeholder="65" min="0" />
-                </div>
-              </div>
             </div>
 
-            <!-- Co-borrower block — visible only if "Oui" was selected on step 1 -->
+            <!-- Co-borrower block - visible only if "Oui" was selected on step 1 -->
             <div class="cond-block" id="co-block-2">
               <p class="form-section-label" style="margin-top:0;padding-top:0;border-top:none;">Co-emprunteur</p>
               <div class="field-row">
@@ -499,14 +535,11 @@
                 </div>
               </div>
               <div class="field">
-                <label>Garanties souhait&eacute;es pour le co-emprunteur</label>
-                <div class="checkbox-group">
-                  <div class="check-btn selected" onclick="this.classList.toggle('selected')">D&eacute;c&egrave;s</div>
-                  <div class="check-btn selected" onclick="this.classList.toggle('selected')">PTIA</div>
-                  <div class="check-btn" onclick="this.classList.toggle('selected')">ITT</div>
-                  <div class="check-btn" onclick="this.classList.toggle('selected')">IPT</div>
-                  <div class="check-btn" onclick="this.classList.toggle('selected')">IPP</div>
-                  <div class="check-btn" onclick="this.classList.toggle('selected')">PE</div>
+                <label>Garanties souhait&eacute;es</label>
+                <div class="radio-group">
+                  <div class="radio-btn selected" onclick="selectRadio(this,'co_garanties')">&Agrave; l&apos;identique</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'co_garanties')">Ren&eacute;goci&eacute;es</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'co_garanties')">&Agrave; la hausse</div>
                 </div>
               </div>
             </div>
@@ -517,45 +550,19 @@
             </div>
           </div>
 
-          <!-- ═══ STEP 3 : Situation personnelle ═══ -->
+          <!-- STEP 3 : Le bien immobilier -->
           <div class="step-page" id="step-3">
-            <p class="step-title">Situation personnelle</p>
-            <p class="step-sub">Ces informations permettent d&apos;affiner le devis.</p>
-
-            <p class="form-section-label" style="margin-top:0;padding-top:0;border-top:none;">Situation familiale</p>
-
-            <div class="field">
-              <label>Situation familiale</label>
-              <div class="radio-group">
-                <div class="radio-btn selected" onclick="selectRadio(this,'situation')">C&eacute;libataire</div>
-                <div class="radio-btn" onclick="selectRadio(this,'situation')">Mari&eacute;(e)</div>
-                <div class="radio-btn" onclick="selectRadio(this,'situation')">Pacs&eacute;(e)</div>
-                <div class="radio-btn" onclick="selectRadio(this,'situation')">En couple</div>
-                <div class="radio-btn" onclick="selectRadio(this,'situation')">Divorc&eacute;(e)</div>
-              </div>
-            </div>
-
-            <div class="field">
-              <label>Nombre d&apos;enfants &agrave; charge</label>
-              <div class="radio-group">
-                <div class="radio-btn selected" onclick="selectRadio(this,'enfants')">0</div>
-                <div class="radio-btn" onclick="selectRadio(this,'enfants')">1</div>
-                <div class="radio-btn" onclick="selectRadio(this,'enfants')">2</div>
-                <div class="radio-btn" onclick="selectRadio(this,'enfants')">3</div>
-                <div class="radio-btn" onclick="selectRadio(this,'enfants')">4+</div>
-              </div>
-            </div>
-
-            <p class="form-section-label">R&eacute;sidence &amp; bien immobilier</p>
+            <p class="step-title">Le bien immobilier</p>
+            <p class="step-sub">Informations sur le bien financ&eacute;.</p>
 
             <div class="field">
               <label>Type de bien financ&eacute;</label>
               <div class="radio-group">
-                <div class="radio-btn selected" onclick="selectRadio(this,'type_bien')">R&eacute;sidence principale</div>
-                <div class="radio-btn" onclick="selectRadio(this,'type_bien')">R&eacute;sidence secondaire</div>
-                <div class="radio-btn" onclick="selectRadio(this,'type_bien')">Locatif</div>
-                <div class="radio-btn" onclick="selectRadio(this,'type_bien')">Local professionnel</div>
-              </div>
+                  <div class="radio-btn selected" onclick="selectRadio(this,'type_bien')">R&eacute;sidence principale</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'type_bien')">R&eacute;sidence secondaire</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'type_bien')">Locatif</div>
+                  <div class="radio-btn" onclick="selectRadio(this,'type_bien')">Local professionnel</div>
+                </div>
             </div>
 
             <div class="field">
@@ -574,54 +581,13 @@
               </div>
             </div>
 
-            <div class="field-row">
-              <div class="field">
-                <label>D&eacute;partement du bien</label>
-                <input type="text" name="dept_bien" placeholder="Ex : 75, 69, 13..." />
-              </div>
-              <div class="field">
-                <label>Usage principal du bien</label>
-                <select name="usage_bien">
-                  <option value="" disabled selected>S&eacute;lectionnez...</option>
-                  <option>Habitation</option>
-                  <option>Commercial</option>
-                  <option>Mixte</option>
-                </select>
-              </div>
-            </div>
-
-            <p class="form-section-label">Organisme pr&ecirc;teur</p>
-
-            <div class="field">
-              <label>Banque / organisme pr&ecirc;teur</label>
-              <input type="text" name="banque" placeholder="Ex : BNP Paribas, LCL, Soci&eacute;t&eacute; G&eacute;n&eacute;rale..." />
-            </div>
-
-            <div class="field">
-              <label>Un accord de principe a-t-il &eacute;t&eacute; obtenu ?</label>
-              <div class="radio-group">
-                <div class="radio-btn selected" onclick="selectRadio(this,'accord')">Non</div>
-                <div class="radio-btn" onclick="selectRadio(this,'accord')">En cours</div>
-                <div class="radio-btn" onclick="selectRadio(this,'accord')">Oui</div>
-              </div>
-            </div>
-
-            <div class="field">
-              <label>D&eacute;lai souhait&eacute; pour le devis</label>
-              <div class="radio-group">
-                <div class="radio-btn selected" onclick="selectRadio(this,'delai')">Le plus vite possible</div>
-                <div class="radio-btn" onclick="selectRadio(this,'delai')">Sous 1 semaine</div>
-                <div class="radio-btn" onclick="selectRadio(this,'delai')">Sous 1 mois</div>
-              </div>
-            </div>
-
             <div class="nav-btns">
               <button class="btn-back" onclick="goStep(2)">&larr; Retour</button>
               <button class="btn-next" onclick="goStep(4)">Suivant &rarr;</button>
             </div>
           </div>
 
-          <!-- ═══ STEP 4 : Coordonnees ═══ -->
+          <!-- === STEP 4 : Coordonnees === -->
           <div class="step-page" id="step-4">
             <p class="step-title">Vos coordonn&eacute;es</p>
             <p class="step-sub">Pour recevoir votre devis personnalis&eacute; sous 24h.</p>
@@ -670,7 +636,7 @@
             <p class="form-legal">Vos donn&eacute;es sont confidentielles et ne seront jamais revendues. Conforme RGPD.</p>
           </div>
 
-          <!-- ═══ SUCCESS ═══ -->
+          <!-- === SUCCESS === -->
           <div class="step-page" id="step-5">
             <div class="success-page">
               <div class="success-icon">
@@ -733,15 +699,14 @@
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">&copy; 2026 Bazant Conseil &ndash; Courtier en assurance. Tous droits r&eacute;serv&eacute;s.</p>
-        <p class="footer-legal">ORIAS n&deg; 26006422 &ndash; SIREN 103 544 185 &ndash; RCS &Eacute;vry</p>
+        <p class="footer-legal">ORIAS n&deg; 26006422 &ndash; Sous le contr&ocirc;le de l&apos;ACPR 4 place de Budapest - CS 92459 - 75436 Paris Cedex 9 &ndash; SIREN 103 544 185 &ndash; RCS &Eacute;vry</p>
       </div>
     </div>
   </footer>
 
   <script>
-
-    const FORMSPREE_URL = 'https://formspree.io/f/xqevdooa';
-    const stepNames = ['Le pr\u00eat','L\'emprunteur','Situation personnelle','Vos coordonn\u00e9es'];
+    const FORMSPREE_URL = 'https://formspree.io/f/VOTRE_ID_ICI';
+    const stepNames = ['Le pr\u00eat','L\'emprunteur','Le bien','Vos coordonn\u00e9es'];
     const totalSteps = 4;
 
     // Nav
@@ -774,7 +739,7 @@
       el.classList.add('selected');
     }
 
-    // Co-borrower toggle — controls block on step 2
+    // Co-borrower toggle - controls block on step 2
     let hasCoBorrower = false;
     function toggleCo(val) {
       hasCoBorrower = val === 'oui';
@@ -814,7 +779,24 @@
 
       const data = new FormData();
       document.querySelectorAll('.step-page input, .step-page select, .step-page textarea').forEach(el => {
+        if (el.closest('#co-block-2') && !hasCoBorrower) return;
         if (el.name && el.type !== 'file') data.append(el.name, el.value);
+      });
+      // Radio buttons and sliders are not real form inputs: collect them by their label
+      document.querySelectorAll('.radio-group').forEach(g => {
+        const sel = g.querySelector('.radio-btn.selected');
+        const field = g.closest('.field');
+        const lab = field && field.querySelector('label');
+        if (!sel || !lab) return;
+        const blk = g.closest('.cond-block');
+        if (blk && !blk.classList.contains('show')) return;
+        const co = g.closest('#co-block-2') ? 'Co-emprunteur - ' : '';
+        data.append(co + lab.textContent.trim(), sel.textContent.trim());
+      });
+      document.querySelectorAll('input[type=range]').forEach(r => {
+        if (r.closest('#co-block-2') && !hasCoBorrower) return;
+        const lab = r.closest('.field').querySelector('label');
+        data.append(lab.textContent.trim(), r.value + '%');
       });
 
       try {
